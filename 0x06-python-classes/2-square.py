@@ -1,19 +1,28 @@
 #!/usr/bin/python3
-class Square():
-    """Defines a square."""
+"""
+Module 2-square
+Defines class Square with private attribute size and validates size
+"""
+
+
+class Square:
+    """
+    class Square definition
+
+    Args:
+        size (int): size of a side in square
+    """
 
     def __init__(self, size=0):
-        """Sets the necessary attributes for the Square object.
-        Args:
-            size (int): the size of one edge of the square.
-        Raises:
-            TypeError: if size is not given as an integer.
-            ValueError: if size is less than 0.
         """
-        if type(size) is int:
-            if size >= 0:
-                self.__size = size
-            else:
-                raise ValueError("size must be >= 0")
-        else:
+        Initializes square
+
+        Attributes:
+            __size (int): size of a side of square, defaults to 0 if none
+        """
+        if type(size) is not int:
             raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
